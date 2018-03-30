@@ -22,7 +22,7 @@
 				<key>invisibles</key>
 				<string>#666666</string>
 				<key>lineHighlight</key>
-				<string>#55555599</string>
+				<string>#33333366</string>
 				<key>selection</key>
 				<string>#AA88FF</string>
 				<key>selectionForeground</key>
@@ -57,7 +57,7 @@
 				<key>foreground</key>
 				<string>#666666</string>
 				<key>background</key>
-				<string>#61616120</string>
+				<string></string>
 				<key>fontStyle</key>
 				<string> italic</string>
 			</dict>
@@ -225,8 +225,6 @@
 			<string>entity.name.tag</string>
 			<key>settings</key>
 			<dict>
-				<key>fontStyle</key>
-				<string></string>
 				<key>foreground</key>
 				<string>#666666</string>
 			</dict>
@@ -238,8 +236,6 @@
 			<string>entity.other.attribute-name</string>
 			<key>settings</key>
 			<dict>
-				<key>fontStyle</key>
-				<string></string>
 				<key>foreground</key>
 				<string>#666666</string>
 			</dict>
@@ -278,7 +274,7 @@
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
-				<string>italic </string>
+				<string>italic  </string>
 				<key>foreground</key>
 				<string>#AA88FF</string>
 			</dict>
