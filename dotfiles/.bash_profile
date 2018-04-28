@@ -34,4 +34,4 @@ export VISUAL=vimr
 alias ls='ls -FGh'
 alias pip='pip3'
 alias python='python3'
-
+alias buu='brew update && brew upgrade'
