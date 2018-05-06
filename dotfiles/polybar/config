@@ -1,0 +1,178 @@
+; requires:
+;   i3, playerctl
+;   fonts: font awesome, or ibm plex mono
+;
+; toggled on/off:
+;   fonts
+;   tray
+;
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[colors]
+background = #ff111111
+border = #ffbf5b75
+foreground = #eeeeee
+foreground-alt = #bf5b75
+highlight = #eeeeee
+secondary = #00ff00
+
+[spacing]
+padding = 1
+
+[bar/default]
+width = 3440 
+height = 30
+background = ${colors.background}
+foreground = ${colors.foreground}
+;border-bottom-size = 5
+border-bottom-size = 0
+border-bottom-color = ${colors.border}
+font-0 = "IBM Plex Mono:style=Regular:weight=bold:size=12"
+font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=6"
+font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=6"
+font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=6"
+;font-1 = source code pro:size=8:antialias=true
+modules-left = i3 xwindow
+modules-center = mpd
+modules-right = cpu memory filesystem temperature volume date powermenu
+module-margin-left = 0
+module-margin-right = 0
+tray-position = right
+tray-padding = ${spacing.padding}
+tray-transparent = false
+tray-background = ${colors.background}
+tray-maxsize = 14
+padding-left = 0
+padding-right = 0
+
+[module/i3]
+type = internal/i3
+index-sort = true
+wrapping-scroll = false
+format-padding = 1
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format = "SPC: <label-state> <label-mode>"
+;label-focused = "%index%"
+label-focused = 
+label-focused-foreground = ${colors.background}
+label-focused-background = ${colors.foreground}
+label-focused-padding = 1
+;label-unfocused = "%index%"
+label-unfocused = 
+;label-unfocused-foreground = ${colors.background}
+label-unfocused-padding = 1
+label-urgent = %index%
+
+[module/xwindow]
+type = internal/xwindow
+format-padding = ${spacing.padding}
+;format-foreground = ${colors.background}
+;format-background = ${colors.foreground}
+label = "WIN: %title%"
+label-maxlen = 200
+
+[module/mpd]
+type = internal/mpd
+format-online-foreground = ${colors.foreground}
+format-online-background = ${colors.background}
+format-online-padding = ${spacing.padding}
+format-online = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}SNG: <label-song>%{A}%{A}%{A}"
+label-song-maxlen = 150
+label-song-ellipsis = true
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "CPU: "
+format-padding = ${spacing.padding}
+label = %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "MEM: "
+format-padding = ${spacing.padding}
+label = %percentage_used%%
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /
+format-mounted-padding = ${spacing.padding}
+label-mounted = "HDD: %free%"
+label-unmounted = "HDD: not mounted"
+
+[module/temperature]
+border-bottom-size = 5
+border-bottom-color = #ff0
+type = internal/temperature
+thermal-zone = 2
+warn-temperature = 80
+ramp-0 = "TMP: "
+ramp-1 = "TMP: "
+ramp-2 = "TMP: "
+format = <ramp> <label>
+format-foreground = ${colors.foreground}
+format-warn = <ramp> <label-warn>
+format-padding = ${spacing.padding}
+format-warn-padding = ${spacing.padding}
+label = %temperature-c%
+label-warn-foreground = ${colors.highlight}
+label-warn = HOT!  %temperature-c%
+
+[module/volume]
+type = internal/alsa
+label-volume-foreground = ${colors.foreground}
+label-volume-background = ${colors.background}
+label-volume-padding = ${spacing.padding}
+label-volume = "VOL: %percentage%%"
+label-muted-padding = ${spacing.padding}
+label-muted = "MUT: %percentage%%"
+
+[module/date]
+type = internal/date
+interval = 5
+date = 
+date-alt = " %m/%d/%y,"
+time = "%l:%M %p"
+time-alt = "%l:%M %p"
+format-padding = ${spacing.padding}
+format-prefix = "CLK:"
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+label = "%date% %time%"
+
+[module/powermenu]
+type = custom/menu
+label-open = [PWR]
+label-open-foreground = ${colors.foreground}
+label-open-background = ${colors.background}
+label-open-padding-left = 1
+label-open-padding-right = 1
+label-close-foreground = ${colors.background}
+label-close-background =  ${colors.foreground}
+label-close-padding = ${spacing.padding}
+label-close = EXT
+menu-0-0-foreground = ${colors.background}
+menu-0-0-background = ${colors.foreground}
+menu-0-0-padding = ${spacing.padding}
+menu-0-0 = RST
+menu-0-0-exec = menu-open-1
+menu-0-1-foreground = ${colors.background}
+menu-0-1-background = ${colors.foreground}
+menu-0-1-padding = ${spacing.padding}
+menu-0-1 = OFF
+menu-0-1-exec = menu-open-2
+menu-1-0-padding = ${spacing.padding}
+menu-1-0 = restart
+menu-1-0-exec = sudo reboot
+menu-2-0-padding = ${spacing.padding}
+menu-2-0 = shutdown
+menu-2-0-exec = sudo poweroff
