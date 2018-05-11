@@ -1,14 +1,5 @@
-; theme: orange
-; author: nvnehi
-; website: http://nnh.io
-;
-; requires:
-;   i3, playerctl
-;   fonts: font awesome, source code pro or bitocra
-;
-; toggled on/off:
-;   fonts
-;   tray
+; TODO: SO MUCH CLEANING UP
+;   also, refactoring, restructuring, better use of variables, etc. everything.
 ;
 
 [settings]
@@ -19,24 +10,25 @@ margin-top = 0
 margin-bottom = 0
 
 [colors]
-background = #ff111111
+background = #bb111111
 ; border = #ffbf5b75
-border = #ff111111
+border = #bb111111
 foreground = #eeeeee
 foreground-alt = #bf5b75
 highlight = #eeeeee
-label-background = #ff222222
+label-background = #dd333333
 secondary = #00ff00
-title-background = #ff333333
+title-background = #dd555555
 
 [spacing]
-padding = 0
-margin = 4
+padding = 1
+margin = 0
 
 [bar/default]
-module-margin = 1
+monitor = DisplayPort-1
+module-margin = 0
 width = 3440 
-height = 30
+height = 25
 background = ${colors.background}
 foreground = ${colors.foreground}
 ;border-bottom-size = 5
@@ -51,153 +43,180 @@ font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=6"
 font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=6"
 ;font-1 = source code pro:size=8:antialias=true
 modules-left = i3 xwindow
-modules-center = mpd
-modules-right = cpu memory filesystem temperature volume date powermenu
-tray-position = right
-tray-padding = ${spacing.padding}
-tray-transparent = false
-tray-background = ${colors.background}
-tray-maxsize = 14
+modules-center = mpd-title mpd
+modules-right = cpu memory filesystem temperature volume date time powermenu
+; tray-position = right
+; tray-transparent = false
+; tray-background = ${colors.background}
+; tray-maxsize = 20
+padding-left = 2
+padding-right = 3
 
 [module/i3]
 type = internal/i3
 index-sort = true
 wrapping-scroll = false
-format-padding = 1
+format-padding = ${spacing.padding}
 format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-format = "SPC: <label-state> <label-mode>"
+format = "<label-state> <label-mode>"
+format-prefix = " I3 "
+format-prefix-background = ${colors.title-background}
 ;label-focused = "%index%"
 label-focused = 
-label-focused-foreground = ${colors.background}
-label-focused-background = ${colors.foreground}
+label-focused-foreground = ${colors.foreground}
+label-focused-background = ${colors.label-background}
 label-focused-padding = 1
 ;label-unfocused = "%index%"
 label-unfocused = 
 ;label-unfocused-foreground = ${colors.background}
+label-unfocused-background = ${colors.label-background}
 label-unfocused-padding = 1
+; label-unfocused-margin = 1
 label-urgent = %index%
 
 [module/xwindow]
 type = internal/xwindow
 format-padding = ${spacing.padding}
-;format-foreground = ${colors.background}
-;format-background = ${colors.foreground}
-label = "WIN: %title%"
+format-prefix = " WIN "
+format-prefix-background = ${colors.title-background}
+label-background = ${colors.label-background}
+label = " %title% "
 label-maxlen = 200
+
+[module/mpd-title]
+type = custom/text
+content = " MUSICA "
+content-background = ${colors.title-background}
+margin-left = 0
+margin-right = 0
 
 [module/mpd]
 type = internal/mpd
 format-online-foreground = ${colors.foreground}
-format-online-background = ${colors.background}
+format-online-background = ${colors.label-background}
 format-online-padding = ${spacing.padding}
-format-online = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}SNG: <label-song>%{A}%{A}%{A}"
+format-online = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:} <label-song> %{A}%{A}%{A}"
+
+;label-song = " %artist% - %album% - %title% "
 label-song-maxlen = 150
 label-song-ellipsis = true
+margin-left = 0
+margin-right = 0
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-background = ${colors.label-background}
 format-prefix = " CPU "
 format-prefix-background = ${colors.title-background}
-format-padding = ${spacing.padding}
 label = " %percentage%% "
+label-background = ${colors.label-background}
+format-padding = ${spacing.padding}
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-background = ${colors.label-background}
 format-prefix = " MEM "
 format-prefix-background = ${colors.title-background}
 format-padding = ${spacing.padding}
 label = " %percentage_used%% "
+label-background = ${colors.label-background}
 
 [module/filesystem]
 type = internal/fs
 interval = 25
 mount-0 = /
-
-format-mounted-padding = ${spacing.padding}
-format-unmounted-padding = ${spacing.padding}
-label-mounted = " %free% "
-format-mounted-background = ${colors.label-background}
+label-mounted = " %used%/%total% "
+label-mounted-background = ${colors.label-background}
+label-mounted-margin-right = ${spacing.padding}
 format-mounted-prefix = " HDD "
 format-mounted-prefix-background = ${colors.title-background}
-label-unmounted = " not mounted "
-format-unmounted-background = ${colors.label-background}
-format-unmounted-prefix = " HDD "
-format-unmounted-prefix-background = ${colors.title-background}
+format-mounted-prefix-margin-left = ${spacing.padding}
 
 [module/temperature]
-border-bottom-size = 5
-border-bottom-color = #ff0
 type = internal/temperature
 thermal-zone = 2
 warn-temperature = 80
 ramp-0 =
 ramp-1 =
 ramp-2 =
-format = "<ramp> <label>"
-format-background = ${colors.label-background}
+; format = " <ramp> <label> "
+format = " <label> "
 format-foreground = ${colors.foreground}
-format-warn = <ramp> <label-warn>
-format-padding = ${spacing.padding}
-format-warn-padding = ${spacing.padding}
+; format-warn = " <ramp> <label-warn> "
+format-warn = " <label-warn> "
 format-prefix = " TMP "
 format-prefix-background = ${colors.title-background}
-label = "%temperature-c% "
+format-prefix-margin-left = ${spacing.padding}
+format-warn-margin-left = ${spacing.padding}
+label = " %temperature-c% "
+label-background = ${colors.label-background}
 label-warn-foreground = ${colors.highlight}
 label-warn = HOT!  %temperature-c%
 
+; TODO: fixed precision, "  5%" instead of "5%"
 [module/volume]
 type = internal/alsa
-format-background = ${colors.label-background}
-label-volume-foreground = ${colors.foreground}
-label-volume-background = ${colors.label-background}
-label-volume-padding = ${spacing.padding}
-label-volume = " %percentage%% "
-label-muted-padding = ${spacing.padding}
-label-muted = " %percentage%% "
-format-volume-prefix-background = ${colors.title-background}
 format-volume-prefix = " VOL "
+format-volume-prefix-background = ${colors.title-background}
+format-volume-prefix-margin-left = ${spacing.padding}
+
+format-muted-prefix = " MUT "
 format-muted-prefix-background = #f00
-format-muted-prefix = " MUT " 
+format-muted-prefix-margin-left = ${spacing.padding}
+
+label-volume = " %percentage%% "
+label-volume-background = ${colors.label-background}
+
+label-muted = " %percentage%% "
+label-muted-background = ${colors.label-background}
+ 
+label-muted-margin-right = ${spacing.padding}
+label-volume-margin-right = ${spacing.padding}
 
 [module/date]
 type = internal/date
 interval = 5
-date = 
-date-alt = " %m/%d/%y,"
-time = "%l:%M %p"
-time-alt = "%l:%M %p"
-format-background = ${colors.label-background}
+date = "%m/%d"
+format-padding = ${spacing.padding}
+format-prefix = " DAY "
+format-prefix-background = ${colors.title-background}
+label = " %date% "
+label-background = ${colors.label-background}
+
+[module/time]
+type = internal/date
+interval = 5
+; 24 hour
+time = "%k:%M"
+; 12 hour
+; time = "%l:%M %p"
 format-padding = ${spacing.padding}
 format-prefix = " CLK "
 format-prefix-background = ${colors.title-background}
-format-foreground = ${colors.foreground}
-label = " %date% %time% "
+label = " %time% "
+label-background = ${colors.label-background}
+label-margin-right = ${spacing.padding}
 
 [module/powermenu]
 type = custom/menu
-label-open = [PWR]
+label-open = "PWR"
 label-open-foreground = ${colors.foreground}
-label-open-background = ${colors.background}
-label-open-padding-left = 1
-label-open-padding-right = 1
-label-close-foreground = ${colors.background}
-label-close-background =  ${colors.foreground}
+label-open-background = ${colors.label-background}
+label-open-padding-left = ${spacing.padding}
+label-open-padding-right = ${spacing.padding}
+label-close-foreground = ${colors.foreground}
+label-close-background =  ${colors.title-background}
 label-close-padding = ${spacing.padding}
-label-close = EXT
-menu-0-0-foreground = ${colors.background}
-menu-0-0-background = ${colors.foreground}
+label-close = " EXIT "
+menu-0-0-foreground = ${colors.foreground}
+menu-0-0-background = ${colors.title-background}
 menu-0-0-padding = ${spacing.padding}
-menu-0-0 = RST
+menu-0-0 = " RESET "
 menu-0-0-exec = menu-open-1
-menu-0-1-foreground = ${colors.background}
-menu-0-1-background = ${colors.foreground}
+menu-0-1-foreground = ${colors.foreground}
+menu-0-1-background = ${colors.title-background}
 menu-0-1-padding = ${spacing.padding}
-menu-0-1 = OFF
+menu-0-1 = " POWER "
 menu-0-1-exec = menu-open-2
 menu-1-0-padding = ${spacing.padding}
 menu-1-0 = restart
