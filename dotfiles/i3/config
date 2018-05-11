@@ -12,11 +12,11 @@
 set $mod Mod4
 set $BORDER_SIZE 4
 # pink color: #bf5b75
-set $COLOR_ACCENT       #999999
-set $COLOR_HIGHLIGHT    #dfdfdf
-set $COLOR_NORMAL       #333333
+set $COLOR_ACCENT       #bbbbbb
+set $COLOR_HIGHLIGHT    #eeeeee
+set $COLOR_NORMAL       #111111
 # set $COLOR_INDICATOR    #f76d47
-set $COLOR_INDICATOR    #666666
+set $COLOR_INDICATOR    #eeeeee
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -187,7 +187,7 @@ client.urgent           #cc77ff #cc77ff $COLOR_HIGHLIGHT #bb66ff
 client.placeholder      $COLOR_NORMAL $COLOR_NORMAL $COLOR_HIGHLIGHT #bb66ff
 
 # gaps
-gaps inner 30
+gaps inner 35
 for_window [class="^.*"] border pixel $BORDER_SIZE
 
 # workspace navigation

@@ -7,7 +7,7 @@ Xft.hintstyle:  hintfull
 
 ! URxvt specific
 URxvt*termName: xterm-256color
-URxvt.font: xft:IBM Plex Mono:size=12
+URxvt.font: xft:IBM Plex Mono:size=14
 URxvt.scrollBar: false
 URxvt.letterSpace: 0
 URxvt.lineSpace: 1
@@ -16,12 +16,12 @@ URxvt.perl-ext-common: default,matcher,selection-to-clipboard
 URxvt.url-launcher: /usr/bin/firefox-beta
 URxvt.matcher.button: 1
 URxvt.internalBorder: 12
-URxvt.depth: 32
-URxvt*transparent: false
-URxvt*shading: 10
+! URxvt.depth: 32
+! URxvt*transparent: false
+! URxvt*shading: 10
 
 ! Colors
-URxvt.background:   #000000
+URxvt.background:   #111111
 URxvt.foreground:   #cccccc
 URxvt.cursorColor:  #aeafad
 URxvt.color0:       #454945
@@ -43,11 +43,11 @@ URxvt.color14:      #aaffff
 URxvt.color15:      #ffffff
 
 ! rofi colors
-#define COLOR_ROFI_BACKGROUND           #111111
+#define COLOR_ROFI_BACKGROUND           #eeeeee
 #define COLOR_ROFI_BACKGROUND_ALT       COLOR_ROFI_BACKGROUND
-#define COLOR_ROFI_FOREGROUND           #787a78
+#define COLOR_ROFI_FOREGROUND           #111111
 ! #define COLOR_ROFI_HIGHLIGHT_BACKGROUND #bf5b75
-#define COLOR_ROFI_HIGHLIGHT_BACKGROUND #eeeeee
+#define COLOR_ROFI_HIGHLIGHT_BACKGROUND #dddddd
 #define COLOR_ROFI_HIGHLIGHT_FOREGROUND #111111
 #define COLOR_ROFI_WINDOW               COLOR_ROFI_BACKGROUND
 #define COLOR_ROFI_WINDOW_BORDER        COLOR_ROFI_HIGHLIGHT_BACKGROUND
@@ -65,7 +65,7 @@ rofi.lines:                          5
 ! Number of columns
 rofi.columns:                        1
 ! Font to use
-rofi.font:                           IBM Plex Mono 12
+rofi.font:                           IBM Plex Mono 14
 ! Color scheme for normal row        bg      fg      bgalt   hlbg    hlfg
 rofi.color-normal:                   COLOR_ROFI_BACKGROUND, COLOR_ROFI_FOREGROUND, COLOR_ROFI_BACKGROUND_ALT, COLOR_ROFI_HIGHLIGHT_BACKGROUND, COLOR_ROFI_HIGHLIGHT_FOREGROUND
 ! Color scheme for urgent row
@@ -81,7 +81,7 @@ rofi.location:                       2
 ! Padding
 rofi.padding:                        30
 ! Y-offset relative to location
-rofi.yoffset:                        30
+rofi.yoffset:                        52
 ! X-offset relative to location
 rofi.xoffset:                        0
 ! Always show number of lines
