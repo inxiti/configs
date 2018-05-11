@@ -1,6 +1,10 @@
+; theme: orange
+; author: nvnehi
+; website: http://nnh.io
+;
 ; requires:
 ;   i3, playerctl
-;   fonts: font awesome, or ibm plex mono
+;   fonts: font awesome, source code pro or bitocra
 ;
 ; toggled on/off:
 ;   fonts
@@ -16,24 +20,32 @@ margin-bottom = 0
 
 [colors]
 background = #ff111111
-border = #ffbf5b75
+; border = #ffbf5b75
+border = #ff111111
 foreground = #eeeeee
 foreground-alt = #bf5b75
 highlight = #eeeeee
+label-background = #ff222222
 secondary = #00ff00
+title-background = #ff333333
 
 [spacing]
-padding = 1
+padding = 0
+margin = 4
 
 [bar/default]
+module-margin = 1
 width = 3440 
 height = 30
 background = ${colors.background}
 foreground = ${colors.foreground}
 ;border-bottom-size = 5
-border-bottom-size = 0
-border-bottom-color = ${colors.border}
-font-0 = "IBM Plex Mono:style=Regular:weight=bold:size=12"
+; border-bottom-size = 0
+; border-bottom-color = ${colors.border}
+border-top-size = 5
+border-bottom-size = 5
+border-color = ${colors.border}
+font-0 = "IBM Plex Mono:style=Regular:weight=bold:size=12;2"
 font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=6"
 font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=6"
 font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=6"
@@ -41,15 +53,11 @@ font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=6"
 modules-left = i3 xwindow
 modules-center = mpd
 modules-right = cpu memory filesystem temperature volume date powermenu
-module-margin-left = 0
-module-margin-right = 0
 tray-position = right
 tray-padding = ${spacing.padding}
 tray-transparent = false
 tray-background = ${colors.background}
 tray-maxsize = 14
-padding-left = 0
-padding-right = 0
 
 [module/i3]
 type = internal/i3
@@ -90,24 +98,36 @@ label-song-ellipsis = true
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU: "
+format-background = ${colors.label-background}
+format-prefix = " CPU "
+format-prefix-background = ${colors.title-background}
 format-padding = ${spacing.padding}
-label = %percentage%%
+label = " %percentage%% "
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "MEM: "
+format-background = ${colors.label-background}
+format-prefix = " MEM "
+format-prefix-background = ${colors.title-background}
 format-padding = ${spacing.padding}
-label = %percentage_used%%
+label = " %percentage_used%% "
 
 [module/filesystem]
 type = internal/fs
 interval = 25
 mount-0 = /
+
 format-mounted-padding = ${spacing.padding}
-label-mounted = "HDD: %free%"
-label-unmounted = "HDD: not mounted"
+format-unmounted-padding = ${spacing.padding}
+label-mounted = " %free% "
+format-mounted-background = ${colors.label-background}
+format-mounted-prefix = " HDD "
+format-mounted-prefix-background = ${colors.title-background}
+label-unmounted = " not mounted "
+format-unmounted-background = ${colors.label-background}
+format-unmounted-prefix = " HDD "
+format-unmounted-prefix-background = ${colors.title-background}
 
 [module/temperature]
 border-bottom-size = 5
@@ -115,26 +135,34 @@ border-bottom-color = #ff0
 type = internal/temperature
 thermal-zone = 2
 warn-temperature = 80
-ramp-0 = "TMP: "
-ramp-1 = "TMP: "
-ramp-2 = "TMP: "
-format = <ramp> <label>
+ramp-0 =
+ramp-1 =
+ramp-2 =
+format = "<ramp> <label>"
+format-background = ${colors.label-background}
 format-foreground = ${colors.foreground}
 format-warn = <ramp> <label-warn>
 format-padding = ${spacing.padding}
 format-warn-padding = ${spacing.padding}
-label = %temperature-c%
+format-prefix = " TMP "
+format-prefix-background = ${colors.title-background}
+label = "%temperature-c% "
 label-warn-foreground = ${colors.highlight}
 label-warn = HOT!  %temperature-c%
 
 [module/volume]
 type = internal/alsa
+format-background = ${colors.label-background}
 label-volume-foreground = ${colors.foreground}
-label-volume-background = ${colors.background}
+label-volume-background = ${colors.label-background}
 label-volume-padding = ${spacing.padding}
-label-volume = "VOL: %percentage%%"
+label-volume = " %percentage%% "
 label-muted-padding = ${spacing.padding}
-label-muted = "MUT: %percentage%%"
+label-muted = " %percentage%% "
+format-volume-prefix-background = ${colors.title-background}
+format-volume-prefix = " VOL "
+format-muted-prefix-background = #f00
+format-muted-prefix = " MUT " 
 
 [module/date]
 type = internal/date
@@ -143,11 +171,12 @@ date =
 date-alt = " %m/%d/%y,"
 time = "%l:%M %p"
 time-alt = "%l:%M %p"
+format-background = ${colors.label-background}
 format-padding = ${spacing.padding}
-format-prefix = "CLK:"
+format-prefix = " CLK "
+format-prefix-background = ${colors.title-background}
 format-foreground = ${colors.foreground}
-format-background = ${colors.background}
-label = "%date% %time%"
+label = " %date% %time% "
 
 [module/powermenu]
 type = custom/menu
