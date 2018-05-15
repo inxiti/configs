@@ -12,11 +12,11 @@
 set $mod Mod4
 set $BORDER_SIZE 4
 # pink color: #bf5b75
-set $COLOR_ACCENT       #bbbbbb
-set $COLOR_HIGHLIGHT    #eeeeee
-set $COLOR_NORMAL       #111111
+set $COLOR_ACCENT       #aaaaaa
+set $COLOR_HIGHLIGHT    #aaaaaa
+set $COLOR_NORMAL       #333333
 # set $COLOR_INDICATOR    #f76d47
-set $COLOR_INDICATOR    #eeeeee
+set $COLOR_INDICATOR    #ffffff
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -205,7 +205,9 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # shortcuts
-bindsym $mod+x exec nemo --no-desktop
+# bindsym $mod+e exec nemo --no-desktop
+bindsym $mod+x exec urxvt -e ranger
+bindsym $mod+Tab exec rofi -show window -display-window "[win]"
 
 # begin polybar
 exec polybar default
