@@ -24,7 +24,7 @@ title-background = #aa555555
 title-foreground = #ee222222
 muted-background = #aaD25E4F
 i3-focused = #eeeeeeee
-i3-unfocused = #66222222
+i3-unfocused = #ee222222
 hostname-background = #ff555555
 hostname-foreground = #ffeeeeee
 
