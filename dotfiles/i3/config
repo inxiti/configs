@@ -10,7 +10,7 @@
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $BORDER_SIZE 4
+set $BORDER_SIZE 6
 # pink color: #bf5b75
 set $COLOR_ACCENT       #aaaaaa
 set $COLOR_HIGHLIGHT    #aaaaaa
