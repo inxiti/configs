@@ -1,7 +1,6 @@
 ; TODO: SO MUCH CLEANING UP
 ;   also, refactoring, restructuring, better use of variables, etc. everything.
-;   icons instead of words for titles, use fontawesome5
-;   replace cpu or memory
+;   add email notification, or irc
 
 [settings]
 screenchange-reload = true
@@ -21,10 +20,10 @@ label-background = #aa333333
 secondary = #00ff00
 title-background = #aa555555
 ; title-foreground = #ff6D6A87
-title-foreground = #ee222222
+title-foreground = #ee111111
 muted-background = #aaD25E4F
 i3-focused = #eeeeeeee
-i3-unfocused = #ee222222
+i3-unfocused = #ee111111
 hostname-background = #ff555555
 hostname-foreground = #ffeeeeee
 
@@ -46,13 +45,14 @@ border-top-size = 5
 border-bottom-size = 5
 border-color = ${colors.border}
 font-0 = "bitocra13full:style=Regular:size=12;2"
-font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
-font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=10;2"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=10;2"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
 font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=10;2"
 ;font-1 = source code pro:size=8:antialias=true
 modules-left = i3 xwindow
 modules-center = mpd-title mpd
-modules-right = cpu memory filesystem temperature volume date time powermenu
+; modules-right = cpu memory filesystem temperature volume date time powermenu
+modules-right = volume date time powermenu
 ; tray-position = right
 ; tray-transparent = false
 ; tray-background = ${colors.background}
@@ -83,26 +83,28 @@ format-prefix-background = ${colors.title-background}
 format-prefix-foreground = ${colors.title-foreground}
 ; label-focused = "%index%"
 ; label-focused = 
-label-focused = 
+; label-focused = 
+; label-focused = 
+label-focused = 
 ; label-focused = 
 label-focused-foreground = ${colors.i3-focused}
 label-focused-background = ${colors.label-background}
 label-focused-padding = 1
 ; label-unfocused = "%index%"
 ; label-unfocused = 
-label-unfocused = 
-; label-unfocused = 
+; label-unfocused = 
+label-unfocused = 
 label-unfocused-foreground = ${colors.i3-unfocused}
 label-unfocused-background = ${colors.label-background}
 label-unfocused-padding = 1
 ; label-unfocused-margin = 1
 ; label-urgent = %index%
-label-urgent = 
+label-urgent = 
 
 [module/xwindow]
 type = internal/xwindow
 format-padding = ${spacing.padding}
-format-prefix = "  "
+format-prefix = " %{T3}%{T-} "
 format-prefix-background = ${colors.title-background}
 format-prefix-foreground = ${colors.title-foreground}
 label-background = ${colors.label-background}
@@ -205,7 +207,7 @@ label-volume-margin-right = ${spacing.padding}
 [module/date]
 type = internal/date
 interval = 5
-date = "%m/%d"
+date = "%a %m/%d"
 format-padding = ${spacing.padding}
 format-prefix = "  "
 format-prefix-background = ${colors.title-background}
