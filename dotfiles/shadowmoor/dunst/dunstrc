@@ -57,7 +57,7 @@
     # screen width minus the width defined in within the geometry option.
     # geometry = "350x5-25-60"  # openbox
     # i3
-    geometry = "500x5+1470+56"
+    geometry = "500x5+1470+52"
 
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
