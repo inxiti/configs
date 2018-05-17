@@ -1,6 +1,8 @@
 ; TODO: SO MUCH CLEANING UP
 ;   also, refactoring, restructuring, better use of variables, etc. everything.
 ;   add email notification, or irc
+;
+;   volume, use bar
 
 [settings]
 screenchange-reload = true
@@ -21,6 +23,7 @@ secondary = #00ff00
 title-background = #555555
 title-foreground = #111111
 muted-background = #D25E4F
+muted-foreground = #111111
 i3-focused = #eeeeee
 i3-unfocused = #555555
 hostname-background = #555555
@@ -123,16 +126,21 @@ margin-right = 0
 
 [module/mpd]
 type = internal/mpd
-format-online = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}<label-song>%{A}%{A}%{A}"
+format-online = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}<label-song>[<bar-progress>] %{A}%{A}%{A}"
 format-online-foreground = ${colors.foreground}
 format-online-background = ${colors.label-background}
-format-paused = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}<label-song>(paused) %{A}%{A}%{A}"
-format-stopped = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:} (stopped) %{A}%{A}%{A}"
+format-paused = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}<label-song>[paused] %{A}%{A}%{A}"
+format-stopped = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:} [stopped %{A}%{A}%{A}"
 label-song = " %artist% - %album% - %title% "
 label-song-maxlen = 150
 label-song-ellipsis = true
 margin-left = 0
 margin-right = 0
+bar-progress-width = 8
+bar-progress-empty = ─
+bar-progress-fill = ─
+bar-progress-indicator = >
+bar-progress-empty-foreground = ${colors.title-background}
 
 [module/cpu]
 type = internal/cpu
@@ -189,22 +197,44 @@ label-warn-foreground = ${colors.highlight}
 label-warn = HOT!  %temperature-c%
 
 ; TODO: fixed precision, "  5%" instead of "5%"
+
 [module/volume]
 type = internal/alsa
-format-volume-prefix = "  "
-format-volume-prefix-background = #FEA649
-format-volume-prefix-foreground = ${colors.title-foreground}
-format-volume-prefix-margin-left = ${spacing.padding}
-format-muted-prefix = "  "
-format-muted-prefix-background = #FEA649
-format-muted-prefix-margin-left = ${spacing.padding}
-format-muted-prefix-foreground = ${colors.title-foreground}
-label-volume = " %percentage%% "
-label-volume-background = ${colors.label-background}
-label-muted = " %percentage%% (muted) "
-label-muted-background = ${colors.label-background}
-label-muted-margin-right = ${spacing.padding}
-label-volume-margin-right = ${spacing.padding}
+; format-volume-prefix = "  "
+; format-volume-prefix-background = #FEA649
+; format-volume-prefix-foreground = ${colors.title-foreground}
+; format-volume-prefix-margin-left = ${spacing.padding}
+; format-muted-prefix = "  "
+; format-muted-prefix-background = #FEA649
+; format-muted-prefix-margin-left = ${spacing.padding}
+; format-muted-prefix-foreground = ${colors.title-foreground}
+
+ramp-volume-0 = "  "
+ramp-volume-1 = "  "
+ramp-volume-2 = "  "
+ramp-volume-background = #FEA649
+ramp-volume-foreground = ${colors.title-foreground}
+
+bar-volume-width = 8
+bar-volume-empty = ─
+bar-volume-fill = ─
+bar-volume-indicator = ─
+
+bar-volume-empty-foreground = ${colors.title-background}
+; bar-volume-fill-foreground = #fff
+; bar-volume-indicator-foreground = #fff
+format-volume = "<ramp-volume>%{B#222222} <bar-volume> %{B-}"
+format-volume-padding = 1
+format-muted = "<label-muted>%{B#D25E4F} <bar-volume> %{B-} "
+
+; label-volume = " %percentage%% "
+; label-volume-background = ${colors.label-background}
+label-muted = "  "
+label-muted-background = ${colors.muted-background}
+label-muted-foreground = ${colors.muted-foreground}
+; label-muted-background = ${colors.label-background}
+; label-muted-margin-right = ${spacing.padding}
+; label-volume-margin-right = ${spacing.padding}
 
 [module/date]
 type = internal/date
