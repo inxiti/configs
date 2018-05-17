@@ -23,7 +23,7 @@ URxvt.depth: 32
 ! Colors
 URxvt.background:   #111111
 URxvt.foreground:   #cccccc
-URxvt.cursorColor:  #aeafad
+URxvt.cursorColor:  #cccccc
 URxvt.color0:       #454945
 URxvt.color1:       #bf5b75
 URxvt.color2:       #9dc26d
