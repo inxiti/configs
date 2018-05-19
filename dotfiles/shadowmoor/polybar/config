@@ -225,7 +225,7 @@ bar-volume-empty-foreground = ${colors.title-background}
 ; bar-volume-indicator-foreground = #fff
 format-volume = "<ramp-volume>%{B#222222} <bar-volume> %{B-}"
 format-volume-padding = 1
-format-muted = "<label-muted>%{B#D25E4F} <bar-volume> %{B-} "
+format-muted = "<label-muted>%{B#D25E4F} %{F#111111}<bar-volume>%{F-} %{B-} "
 
 ; label-volume = " %percentage%% "
 ; label-volume-background = ${colors.label-background}
