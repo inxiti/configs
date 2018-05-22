@@ -1,0 +1,313 @@
+; TODO: SO MUCH CLEANING UP
+;   also, refactoring, restructuring, better use of variables, etc. everything.
+;   add email notification, or irc
+;
+;   volume, use bar
+;
+;   use colors from https://github.com/morhetz/gruvbox for icon backgrounds, etc
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[colors-base]
+background = #111111
+; border = #bf5b75
+border = #111111
+foreground = #eeeeee
+foreground-alt = #bf5b75
+highlight = #eeeeee
+label-background = #222222
+secondary = #00ff00
+title-background = #555555
+title-foreground = #111111
+muted-background = #D25E4F
+muted-foreground = #111111
+i3-focused = #eeeeee
+i3-unfocused = #555555
+hostname-background = #555555
+hostname-foreground = #eeeeee
+
+[colors-gruvbox]
+background = #1D2021
+; border = #bf5b75
+border = #1D2021
+foreground = #ebdbb2
+foreground-alt = #bf5b75
+highlight = #ebdbb2
+label-background = #2e3132
+secondary = #00ff00
+title-background = #555555
+title-foreground = #1D2021
+muted-background = #cc241d
+muted-foreground = #2e3132
+i3-focused = #ebdbb2
+i3-unfocused = #555555
+hostname-background = #555555
+hostname-foreground = #ebdbb2
+
+[spacing]
+padding = 1
+margin = 2
+
+[bar/default]
+monitor = DisplayPort-1
+module-margin = 0
+width = 3440
+height = 25
+background = ${colors-gruvbox.background}
+foreground = ${colors-gruvbox.foreground}
+;border-bottom-size = 5
+; border-bottom-size = 0
+; border-bottom-color = ${colors-gruvbox.border}
+border-top-size = 5
+border-bottom-size = 5
+border-color = ${colors-gruvbox.border}
+font-0 = "bitocra13full:style=Regular:size=13;2"
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=10;2"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
+font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=10;2"
+font-4 = "Siji:pixelsize=15;4"
+;font-1 = source code pro:size=8:antialias=true
+modules-left = i3 xwindow
+modules-center = mpd-title mpd
+; modules-right = cpu memory filesystem temperature volume date time powermenu
+modules-right = volume date time powermenu
+; tray-position = right
+; tray-transparent = false
+; tray-background = ${colors-gruvbox.background}
+; tray-maxsize = 20
+padding-left = 2
+padding-right = 3
+; bottom = true
+
+[module/i3]
+type = internal/i3
+index-sort = true
+wrapping-scroll = false
+format-padding = ${spacing.padding}
+format-foreground = ${colors-gruvbox.foreground}
+format = "<label-state> <label-mode>"
+; hostname
+; format-prefix = "  shadowmoor  "
+format-prefix-margin-left = ${spacing.margin}
+; nintendo switch
+; format-prefix = "  "
+; microsoft, represents a grid
+format-prefix = "  "
+; windows
+; format-prefix = "  "
+; rebels
+; format-prefix = "  "
+format-prefix-background = #928374
+format-prefix-foreground = ${colors-gruvbox.title-foreground}
+; label-focused = "%index%"
+label-focused = 
+; label-focused = 
+; label-focused = 
+; label-focused = 
+; label-focused = 
+label-focused-foreground = ${colors-gruvbox.i3-focused}
+label-focused-background = ${colors-gruvbox.label-background}
+label-focused-padding = 1
+; label-unfocused = "%index%"
+; label-unfocused = %{T3}%{T-}
+; label-unfocused = 
+label-unfocused = •
+label-unfocused-foreground = ${colors-gruvbox.i3-unfocused}
+label-unfocused-background = ${colors-gruvbox.label-background}
+label-unfocused-padding = 1
+; label-unfocused-margin = 1
+; label-urgent = %index%
+label-urgent = 
+label-urgent-background = ${colors-gruvbox.label-background}
+label-urgent-padding = 1
+
+[module/xwindow]
+type = internal/xwindow
+format-padding = ${spacing.padding}
+format-prefix = " %{T3}%{T-} "
+format-prefix-background = #d79921
+format-prefix-foreground = ${colors-gruvbox.title-foreground}
+label-background = ${colors-gruvbox.label-background}
+label = " %title% "
+label-maxlen = 200
+
+[module/mpd-title]
+type = custom/text
+content = "  "
+content-background = #d3869b
+content-foreground = ${colors-gruvbox.title-foreground}
+margin-left = 0
+margin-right = 0
+
+[module/mpd]
+type = internal/mpd
+format-online = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}<label-song>[<bar-progress>] %{A}%{A}%{A}"
+format-online-foreground = ${colors-gruvbox.foreground}
+format-online-background = ${colors-gruvbox.label-background}
+format-paused = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}<label-song>[paused] %{A}%{A}%{A}"
+format-stopped = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:} [stopped %{A}%{A}%{A}"
+label-song = " %artist% - %album% - %title% "
+label-song-maxlen = 150
+label-song-ellipsis = true
+margin-left = 0
+margin-right = 0
+bar-progress-width = 8
+bar-progress-empty = ─
+bar-progress-fill = ─
+bar-progress-fill-foreground = #d3869b
+bar-progress-indicator = >
+; bar-progress-indicator-foreground = #d3869b
+bar-progress-empty-foreground = ${colors-gruvbox.title-background}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = "  "
+format-prefix-background = ${colors-gruvbox.title-background}
+format-prefix-foreground = ${colors-gruvbox.title-foreground}
+label = " %percentage%% "
+label-background = ${colors-gruvbox.label-background}
+format-padding = ${spacing.padding}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = "  "
+format-prefix-background = ${colors-gruvbox.title-background}
+format-prefix-foreground = ${colors-gruvbox.title-foreground}
+format-padding = ${spacing.padding}
+label = " %percentage_used%% "
+label-background = ${colors-gruvbox.label-background}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+mount-0 = /
+label-mounted = " %free% "
+label-mounted-background = ${colors-gruvbox.label-background}
+label-mounted-margin-right = ${spacing.padding}
+format-mounted-prefix = "  "
+format-mounted-prefix-background = ${colors-gruvbox.title-background}
+format-mounted-prefix-foreground = ${colors-gruvbox.title-foreground}
+format-mounted-prefix-margin-left = ${spacing.padding}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 2
+warn-temperature = 80
+ramp-0 =
+ramp-1 =
+ramp-2 =
+; format = " <ramp> <label> "
+format = " <label> "
+format-foreground = ${colors-gruvbox.foreground}
+; format-warn = " <ramp> <label-warn> "
+format-warn = " <label-warn> "
+format-prefix = "  "
+format-prefix-background = ${colors-gruvbox.title-background}
+format-prefix-foreground = ${colors-gruvbox.title-foreground}
+format-prefix-margin-left = ${spacing.padding}
+format-warn-margin-left = ${spacing.padding}
+label = " %temperature-c% "
+label-background = ${colors-gruvbox.label-background}
+label-warn-foreground = ${colors-gruvbox.highlight}
+label-warn = HOT!  %temperature-c%
+
+; TODO: fixed precision, "  5%" instead of "5%"
+
+[module/volume]
+type = internal/alsa
+; format-volume-prefix = "  "
+; format-volume-prefix-background = #FEA649
+; format-volume-prefix-foreground = ${colors-gruvbox.title-foreground}
+; format-volume-prefix-margin-left = ${spacing.padding}
+; format-muted-prefix = "  "
+; format-muted-prefix-background = #FEA649
+; format-muted-prefix-margin-left = ${spacing.padding}
+; format-muted-prefix-foreground = ${colors-gruvbox.title-foreground}
+
+ramp-volume-0 = "  "
+ramp-volume-1 = "  "
+ramp-volume-2 = "  "
+ramp-volume-background = #b16286
+ramp-volume-foreground = ${colors-gruvbox.title-foreground}
+
+bar-volume-width = 8
+bar-volume-empty = ─
+bar-volume-fill = ─
+bar-volume-indicator = ─
+
+bar-volume-empty-foreground = ${colors-gruvbox.title-background}
+; bar-volume-fill-foreground = #fff
+; bar-volume-indicator-foreground = #fff
+format-volume = "<ramp-volume>%{B#2e3132} <bar-volume> %{B-}"
+format-volume-padding = 1
+format-muted = "<label-muted>%{B#cc241d} %{F#1d2021}<bar-volume>%{F-} %{B-} "
+
+; label-volume = " %percentage%% "
+; label-volume-background = ${colors-gruvbox.label-background}
+label-muted = "  "
+label-muted-background = ${colors-gruvbox.muted-background}
+label-muted-foreground = ${colors-gruvbox.muted-foreground}
+; label-muted-background = ${colors-gruvbox.label-background}
+; label-muted-margin-right = ${spacing.padding}
+; label-volume-margin-right = ${spacing.padding}
+
+[module/date]
+type = internal/date
+interval = 5
+date = "%a %m/%d"
+format-padding = ${spacing.padding}
+format-prefix = "  "
+format-prefix-background = #8ec07c
+format-prefix-foreground = ${colors-gruvbox.title-foreground}
+label = " %date% "
+label-background = ${colors-gruvbox.label-background}
+
+[module/time]
+type = internal/date
+interval = 5
+; 24 hour
+time = "%H:%M"
+; 12 hour
+; time = "%l:%M %p"
+format-padding = ${spacing.padding}
+format-prefix = "  "
+format-prefix-background = #458588
+format-prefix-foreground = ${colors-gruvbox.title-foreground}
+label = " %time% "
+label-background = ${colors-gruvbox.label-background}
+label-margin-right = ${spacing.padding}
+
+[module/powermenu]
+type = custom/menu
+label-open = ""
+label-open-margin-right = ${spacing.margin}
+label-open-foreground = ${colors-gruvbox.title-foreground}
+label-open-background = ${colors-gruvbox.title-background}
+label-open-padding-left = ${spacing.padding}
+label-open-padding-right = ${spacing.padding}
+
+label-close-foreground = ${colors-gruvbox.title-foreground}
+label-close-background = #928374
+label-close = "  "
+
+menu-0-0-foreground = ${colors-gruvbox.foreground}
+menu-0-0-background = ${colors-gruvbox.label-background}
+menu-0-0 = " LOGOUT / " 
+menu-0-0-exec = "i3-msg exit"
+
+menu-0-1-foreground = ${colors-gruvbox.foreground}
+menu-0-1-background = ${colors-gruvbox.label-background}
+menu-0-1 = "RESET /" 
+menu-0-1-exec = "reboot"
+
+menu-0-2-foreground = ${colors-gruvbox.foreground}
+menu-0-2-background = ${colors-gruvbox.label-background}
+menu-0-2 = " POWER "
+menu-0-2-exec = "poweroff"
