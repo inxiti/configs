@@ -1,6 +1,6 @@
 [global]
     timeout = 3
-    font = IBM Plex Mono 14
+    font = IBM Plex Sans 14
     # font = Monospace 8
 
     # Markup reference: <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>
@@ -13,7 +13,7 @@
     #   %i  iconname (including its path)
     #   %I  iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
-    format = "<span foreground='#111111'><b>%s</b></span>\n\n%b"
+    format = "<span foreground='#282828'><b>%s</b></span>\n\n%b"
     # format = "<span font='11' weight='bold' foreground='#ffffff'>%s</span>\n%i\n%b"
     # format = "<b>%s</b>\n%i\n%b"
 
@@ -149,12 +149,12 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
     background = "#eeeeee"
-    foreground = "#111111"
+    foreground = "#282828"
     timeout = 3
 
 [urgency_normal]
     background = "#eeeeee"
-    foreground = "#111111"
+    foreground = "#282828"
     timeout = 5
 
 [urgency_critical]

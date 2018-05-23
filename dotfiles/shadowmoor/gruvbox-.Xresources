@@ -64,7 +64,7 @@ rofi.lines:                          5
 ! Number of columns
 rofi.columns:                        1
 ! Font to use
-rofi.font:                           IBM Plex Mono 14
+rofi.font:                           IBM Plex Sans 14 
 ! Color scheme for normal row        bg      fg      bgalt   hlbg    hlfg
 rofi.color-normal:                   COLOR_ROFI_BACKGROUND, COLOR_ROFI_FOREGROUND, COLOR_ROFI_BACKGROUND_ALT, COLOR_ROFI_HIGHLIGHT_BACKGROUND, COLOR_ROFI_HIGHLIGHT_FOREGROUND
 ! Color scheme for urgent row
