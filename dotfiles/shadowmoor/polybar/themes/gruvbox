@@ -1,0 +1,40 @@
+[settings/colors]
+background = #282828
+border = ${settings/colors.background}
+foreground = #fbf1c7
+foreground-alt = #bf5b75
+highlight = #ebdbb2
+label-background = #3c3836
+secondary = #00ff00
+title-background = #555555
+title-foreground = #1D2021
+muted-background = #cc241d
+muted-foreground = #1D2021
+i3-focused = #fbf1c7
+i3-unfocused = #928374
+i3-separator = #504945
+hostname-background = #555555
+hostname-foreground = #ebdbb2
+
+; icons
+i3 = #cc241d
+xwindow = #d79921
+mpd-title = #d3869b
+mpd-progress = #d3869b
+volume = #b16286
+volume-muted = #b16286
+volume-progress = #ebdbb2
+date = #8ec07c
+time = #458588
+menu = #555555
+menu-close = #928374
+
+[bar/default]
+; labels
+font-0 = "bitocra13full:style=Regular:size=13;1"
+; icons
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=10;2"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
+font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=10;2"
+; dots representing workspaces
+font-4 = "Siji:pixelsize=15;3"
