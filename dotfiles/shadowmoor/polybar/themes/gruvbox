@@ -4,26 +4,26 @@ border = ${settings/colors.background}
 foreground = #fbf1c7
 highlight = #ebdbb2
 label-background = #3c3836
-title-background = #555555
 title-foreground = #1D2021
-muted-background = #cc241d
-muted-foreground = #1D2021
 i3-focused = #fbf1c7
 i3-unfocused = #928374
 i3-separator = #504945
 
 ; colors for icon backgrounds
-i3 = #cc241d
-xwindow = #d79921
-mpd-title = #d3869b
-mpd-progress = #d3869b
-volume = #b16286
+i3 = #cc214d
+xwindow = #d3869b
+mpd-title = #fabd2f
+mpd-progress = ${settings/colors.mpd-title}
+volume = #b8bb26
 volume-muted = ${settings/colors.volume}
-volume-progress = #ebdbb2
 date = #8ec07c
 time = #458588
 menu = #555555
 menu-close = #928374
+
+; progress bars
+bar-empty = #504945 
+volume-progress = ${settings/colors.volume}
 
 [bar/default]
 ; labels

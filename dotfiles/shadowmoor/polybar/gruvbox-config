@@ -1,14 +1,11 @@
-; MUST TODO:
+; MUST TODO, BUG?, NOT ADDED?:
 ;   i3 workspaces, need a padding on left/right, just one space
 ;
 ; TODO: SO MUCH CLEANING UP
 ;   also, refactoring, restructuring, better use of variables, etc. everything.
 ;   add email notification, or irc
-;
+;   button that runs 'rofi -show run -display-run "[🔎]"'
 ;   better/different bitmap fonts
-;
-;   volume, use bar
-;
 ;   use colors from https://github.com/morhetz/gruvbox for icon backgrounds, etc
 
 [settings]
@@ -127,7 +124,7 @@ bar-progress-fill = ─
 bar-progress-fill-foreground = ${settings/colors.mpd-progress}
 bar-progress-indicator = >
 ; bar-progress-indicator-foreground = ${settings/colors.mpd-progress}
-bar-progress-empty-foreground = ${settings/colors.title-background}
+bar-progress-empty-foreground = ${settings/colors.bar-empty}
 
 ; TODO: fixed precision, "  5%" instead of "5%"
 
@@ -153,7 +150,7 @@ bar-volume-empty = ─
 bar-volume-fill = ─
 bar-volume-indicator = ─
 
-bar-volume-empty-foreground = ${settings/colors.title-background}
+bar-volume-empty-foreground = ${settings/colors.bar-empty}
 bar-volume-fill-foreground = ${settings/colors.volume-progress}
 bar-volume-indicator-foreground = ${settings/colors.volume-progress}
 format-volume = "<ramp-volume>%{B#2e3132}  <bar-volume>  %{B-}"
