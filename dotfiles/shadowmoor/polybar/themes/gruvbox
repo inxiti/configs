@@ -2,10 +2,8 @@
 background = #282828
 border = ${settings/colors.background}
 foreground = #fbf1c7
-foreground-alt = #bf5b75
 highlight = #ebdbb2
 label-background = #3c3836
-secondary = #00ff00
 title-background = #555555
 title-foreground = #1D2021
 muted-background = #cc241d
@@ -13,16 +11,14 @@ muted-foreground = #1D2021
 i3-focused = #fbf1c7
 i3-unfocused = #928374
 i3-separator = #504945
-hostname-background = #555555
-hostname-foreground = #ebdbb2
 
-; icons
+; colors for icon backgrounds
 i3 = #cc241d
 xwindow = #d79921
 mpd-title = #d3869b
 mpd-progress = #d3869b
 volume = #b16286
-volume-muted = #b16286
+volume-muted = ${settings/colors.volume}
 volume-progress = #ebdbb2
 date = #8ec07c
 time = #458588
