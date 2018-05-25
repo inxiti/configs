@@ -28,9 +28,11 @@ volume-progress = ${settings/colors.volume}
 [bar/default]
 ; labels
 font-0 = "bitocra13full:style=Regular:size=13;1"
+
 ; icons
 font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=10;2"
 font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;2"
 font-3 = "Font Awesome 5 Brands:style=Regular:pixelsize=10;2"
+
 ; dots representing workspaces
 font-4 = "Siji:pixelsize=15;3"
