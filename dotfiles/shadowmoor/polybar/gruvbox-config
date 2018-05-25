@@ -88,35 +88,37 @@ label-separator-foreground = ${settings/colors.i3-separator}
 
 [module/xwindow]
 type = internal/xwindow
+
 format-padding = ${spacing.padding}
 format-prefix = "    "
 format-prefix-font = 4
 format-prefix-background = ${settings/colors.xwindow}
 format-prefix-foreground = ${settings/colors.title-foreground}
+
 label-background = ${settings/colors.label-background}
 label = "  %title%  "
 label-maxlen = 200
 
 [module/mpd-title]
 type = custom/text
+
 content = "    "
 content-background = ${settings/colors.mpd-title}
 content-foreground = ${settings/colors.title-foreground}
-margin-left = 0
-margin-right = 0
 
 [module/mpd]
 type = internal/mpd
+
 format-online = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}  <label-song> [<bar-progress>]  %{A}%{A}%{A}"
 format-online-foreground = ${settings/colors.foreground}
 format-online-background = ${settings/colors.label-background}
 format-paused = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}  <label-song> [paused]  %{A}%{A}%{A}"
 format-stopped = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}  [stopped]  %{A}%{A}%{A}"
+
 label-song = "%artist% - %album% - %title%"
 label-song-maxlen = 150
 label-song-ellipsis = true
-margin-left = 0
-margin-right = 0
+
 bar-progress-width = 8
 bar-progress-empty = ─
 bar-progress-fill = ─
@@ -124,8 +126,6 @@ bar-progress-fill-foreground = ${settings/colors.mpd-progress}
 bar-progress-indicator = >
 ; bar-progress-indicator-foreground = ${settings/colors.mpd-progress}
 bar-progress-empty-foreground = ${settings/colors.bar-empty}
-
-; TODO: fixed precision, "  5%" instead of "5%"
 
 [module/volume]
 type = internal/alsa
