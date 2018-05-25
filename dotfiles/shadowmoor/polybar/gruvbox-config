@@ -9,8 +9,8 @@
 ;   use colors from https://github.com/morhetz/gruvbox for icon backgrounds, etc
 
 [settings]
-screenchange-reload = true
 include-file = /home/inxiti/.config/polybar/themes/gruvbox
+screenchange-reload = true
 
 [global/wm]
 margin-top = 0
@@ -21,31 +21,30 @@ padding = 1
 margin = 2
 
 [bar/default]
-monitor = DisplayPort-1
-module-margin = 0
-width = 3440
-height = 35
-background = ${settings/colors.background}
-foreground = ${settings/colors.foreground}
-;border-bottom-size = 5
-; border-bottom-size = 0
-; border-bottom-color = ${settings/colors.border}
+; appearance
+bottom = false 
 border-top-size = 0
 border-bottom-size = 0
 border-color = ${settings/colors.border}
+height = 35
+width = 3440
+padding-left = 2
+padding-right = 3
+background = ${settings/colors.background}
+foreground = ${settings/colors.foreground}
+monitor = DisplayPort-1
 
-;font-1 = source code pro:size=8:antialias=true
+; available modules = cpu date filesystem memory i3 mpd-title mpd powermenu temperature time volume xwindow
+module-margin = 0
 modules-left = i3 xwindow
 modules-center = mpd-title mpd
-; modules-right = cpu memory filesystem temperature volume date time powermenu
 modules-right = volume date time powermenu
+
+; system tray
 ; tray-position = right
 ; tray-transparent = false
 ; tray-background = ${settings/colors.background}
 ; tray-maxsize = 20
-padding-left = 2
-padding-right = 3
-; bottom = true
 
 [module/i3]
 type = internal/i3
@@ -63,7 +62,7 @@ format-prefix-margin-left = ${spacing.margin}
 format-prefix = "    "
 ; format-prefix = "  "
 ; format-prefix = "  "
-label-focused = "  %index%  "
+label-focused = "  %index% "
 ; label-focused = "    "
 ; label-focused = "  "
 ; label-focused = " %index% "
@@ -74,7 +73,7 @@ label-unfocused = "  %index%  "
 ; label-unfocused = "  "
 ; label-unfocused = " • "
 ; label-urgent = %index%
-label-urgent = "   %index%  "
+label-urgent = "  %index% "
 label-separator = "|"
 
 format-prefix-background = ${settings/colors.i3}
