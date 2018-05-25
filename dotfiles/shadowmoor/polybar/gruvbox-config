@@ -133,69 +133,73 @@ bar-progress-empty-foreground = ${settings/colors.bar-empty}
 format-online-background = ${settings/colors.label-background}
 format-online-foreground = ${settings/colors.foreground}
 
+;;; using ramp-volume-* instead of format-volume-prefix, format-muted-prefix, etc...
+;;; as a result, the colors for those format/labels are defined but unused
 [module/volume]
 type = internal/alsa
-; format-volume-prefix = "  "
-; format-volume-prefix-background = ${settings/colors.volume}
-; format-volume-prefix-foreground = ${settings/colors.title-foreground}
-; format-volume-prefix-margin-left = ${spacing.padding}
-; format-muted-prefix = "  "
-; format-muted-prefix-background = ${settings/colors.volume}
-; format-muted-prefix-margin-left = ${spacing.padding}
-; format-muted-prefix-foreground = ${settings/colors.title-foreground}
-
-ramp-volume-0 = "    "
-ramp-volume-1 = "    "
-ramp-volume-2 = "    "
-ramp-volume-background = ${settings/colors.volume}
-ramp-volume-foreground = ${settings/colors.title-foreground}
 
 bar-volume-width = 8
 bar-volume-empty = ─
 bar-volume-fill = ─
 bar-volume-indicator = ─
 
+format-muted = "<label-muted>%{B#2e3132}  %{F#1d2021}<bar-volume>%{F-}  %{B-} "
+; format-muted-prefix = "  "
+format-volume = "<ramp-volume>%{B#2e3132}  <bar-volume>  %{B-}"
+format-volume-padding = 1 ; TODO: FIXME: bug? without it there is no padding between volume and date
+; format-volume-prefix = "  "
+
+label-muted = "    "
+; label-volume = " %percentage%% "
+
+ramp-volume-0 = "    "
+ramp-volume-1 = "    "
+ramp-volume-2 = "    "
+
 bar-volume-empty-foreground = ${settings/colors.bar-empty}
 bar-volume-fill-foreground = ${settings/colors.volume-progress}
 bar-volume-indicator-foreground = ${settings/colors.volume-progress}
-format-volume = "<ramp-volume>%{B#2e3132}  <bar-volume>  %{B-}"
-format-volume-padding = 1 ; FIXME: bug? without it there is no padding between volume and date
-format-muted = "<label-muted>%{B#2e3132}  %{F#1d2021}<bar-volume>%{F-}  %{B-} "
-
-; label-volume = " %percentage%% "
-; label-volume-background = ${settings/colors.label-background}
-label-muted = "    "
+format-muted-prefix-background = ${settings/colors.volume}
+format-muted-prefix-foreground = ${settings/colors.title-foreground}
+format-volume-prefix-background = ${settings/colors.volume}
+format-volume-prefix-foreground = ${settings/colors.title-foreground}
 label-muted-background = ${settings/colors.volume-muted}
 label-muted-foreground = ${settings/colors.title-foreground}
-; label-muted-background = ${settings/colors.label-background}
-; label-muted-margin-right = ${spacing.padding}
-; label-volume-margin-right = ${spacing.padding}
+label-volume-background = ${settings/colors.label-background}
+ramp-volume-background = ${settings/colors.volume}
+ramp-volume-foreground = ${settings/colors.title-foreground}
 
 [module/date]
 type = internal/date
-interval = 5
+
 date = " %a %m/%d "
+interval = 5
+
 format-padding = ${spacing.padding}
 format-prefix = "    "
+
+label = " %date% "
+
 format-prefix-background = ${settings/colors.date}
 format-prefix-foreground = ${settings/colors.title-foreground}
-label = " %date% "
 label-background = ${settings/colors.label-background}
 
 [module/time]
 type = internal/date
+
 interval = 5
-; 24 hour
+;;; 12 hour time: " %l:%M %p ", 24 hour time: " %H:%M "
 time = " %H:%M "
-; 12 hour
-; time = "%l:%M %p"
+
 format-padding = ${spacing.padding}
 format-prefix = "    "
+
+label = " %time% "
+label-margin-right = ${spacing.padding}
+
 format-prefix-background = ${settings/colors.time}
 format-prefix-foreground = ${settings/colors.title-foreground}
-label = " %time% "
 label-background = ${settings/colors.label-background}
-label-margin-right = ${spacing.padding}
 
 [module/powermenu]
 type = custom/menu
