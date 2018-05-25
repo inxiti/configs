@@ -21,7 +21,7 @@ padding = 1
 margin = 2
 
 [bar/default]
-; appearance
+;;; appearance
 bottom = false 
 border-top-size = 0
 border-bottom-size = 0
@@ -34,7 +34,7 @@ background = ${settings/colors.background}
 foreground = ${settings/colors.foreground}
 monitor = DisplayPort-1
 
-; available modules = cpu date filesystem memory i3 mpd-title mpd powermenu temperature time volume xwindow
+;;; modules available: cpu date filesystem memory i3 mpd-title mpd powermenu temperature time volume xwindow
 module-margin = 0
 modules-left = i3 xwindow
 modules-center = mpd-title mpd
@@ -48,43 +48,46 @@ modules-right = volume date time powermenu
 
 [module/i3]
 type = internal/i3
+
 index-sort = true
 wrapping-scroll = false
+
 format-padding = ${spacing.padding}
-format-foreground = ${settings/colors.foreground}
+format-prefix-margin-left = ${spacing.margin}
 format = "<label-state> <label-mode>"
 
-label-padding = 41
-; hostname
-; format-prefix = "  shadowmoor  "
-format-prefix-margin-left = ${spacing.margin}
-; format-prefix = "  " ; nintendo switch
 format-prefix = "    "
+
+label-focused = "  %index% "
+label-separator = "|"
+label-unfocused = "  %index%  "
+label-urgent = "  %index% "
+
+;;; alternative text/icons for workspaces
+; format-prefix = "  shadowmoor  "
+; format-prefix = "  " ; nintendo switch
 ; format-prefix = "  "
 ; format-prefix = "  "
-label-focused = "  %index% "
 ; label-focused = "    "
 ; label-focused = "  "
 ; label-focused = " %index% "
 ; label-unfocused = " %{T3}%{T-} "
 ; label-unfocused = "  "
-label-unfocused = "  %index%  "
 ; label-unfocused = %{T3}%{T-}
 ; label-unfocused = "  "
 ; label-unfocused = " • "
 ; label-urgent = %index%
-label-urgent = "  %index% "
-label-separator = "|"
 
+format-foreground = ${settings/colors.foreground}
 format-prefix-background = ${settings/colors.i3}
 format-prefix-foreground = ${settings/colors.title-foreground}
 label-focused-foreground = ${settings/colors.i3-focused}
 label-focused-background = ${settings/colors.label-background}
+label-separator-background = ${settings/colors.label-background}
+label-separator-foreground = ${settings/colors.i3-separator}
 label-unfocused-foreground = ${settings/colors.i3-unfocused}
 label-unfocused-background = ${settings/colors.label-background}
 label-urgent-background = ${settings/colors.label-background}
-label-separator-background = ${settings/colors.label-background}
-label-separator-foreground = ${settings/colors.i3-separator}
 
 [module/xwindow]
 type = internal/xwindow
@@ -92,26 +95,31 @@ type = internal/xwindow
 format-padding = ${spacing.padding}
 format-prefix = "    "
 format-prefix-font = 4
-format-prefix-background = ${settings/colors.xwindow}
-format-prefix-foreground = ${settings/colors.title-foreground}
 
-label-background = ${settings/colors.label-background}
 label = "  %title%  "
 label-maxlen = 200
+
+format-prefix-background = ${settings/colors.xwindow}
+format-prefix-foreground = ${settings/colors.title-foreground}
+label-background = ${settings/colors.label-background}
 
 [module/mpd-title]
 type = custom/text
 
 content = "    "
+
 content-background = ${settings/colors.mpd-title}
 content-foreground = ${settings/colors.title-foreground}
 
 [module/mpd]
 type = internal/mpd
 
+bar-progress-width = 8
+bar-progress-empty = ─
+bar-progress-fill = ─
+bar-progress-indicator = >
+
 format-online = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}  <label-song> [<bar-progress>]  %{A}%{A}%{A}"
-format-online-foreground = ${settings/colors.foreground}
-format-online-background = ${settings/colors.label-background}
 format-paused = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}  <label-song> [paused]  %{A}%{A}%{A}"
 format-stopped = "%{A1:playerctl play-pause:}%{A4:playerctl previous:}%{A5:playerctl next:}  [stopped]  %{A}%{A}%{A}"
 
@@ -119,13 +127,11 @@ label-song = "%artist% - %album% - %title%"
 label-song-maxlen = 150
 label-song-ellipsis = true
 
-bar-progress-width = 8
-bar-progress-empty = ─
-bar-progress-fill = ─
 bar-progress-fill-foreground = ${settings/colors.mpd-progress}
-bar-progress-indicator = >
-; bar-progress-indicator-foreground = ${settings/colors.mpd-progress}
 bar-progress-empty-foreground = ${settings/colors.bar-empty}
+; bar-progress-indicator-foreground = ${settings/colors.mpd-progress}
+format-online-background = ${settings/colors.label-background}
+format-online-foreground = ${settings/colors.foreground}
 
 [module/volume]
 type = internal/alsa
