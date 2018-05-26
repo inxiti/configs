@@ -39,10 +39,12 @@ fi
 xrandr --output DisplayPort-1 --mode 3440x1440 --rate 75.05
 
 # enable natural scrolling
-xinput set-prop 13 274 1
+# xinput set-prop 13 272 1
+xinput --set-prop 13 "libinput Natural Scrolling Enabled" 1
 
 # start compton, & necessary since the background option is bugged
-allow_rgb10_configs=false compton --config ~/.config/compton/compton.conf &
+# allow_rgb10_configs=false compton --config ~/.config/compton/compton.conf &
+compton --config ~/.config/compton/compton.conf &
 
 # set background
 sh ~/.fehbg
