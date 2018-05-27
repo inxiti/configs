@@ -5,19 +5,19 @@ foreground = #fbf1c7
 highlight = #ebdbb2
 label-background = #3c3836
 title-foreground = #1D2021
+
+; colors for icon backgrounds
+i3 = #458588
 i3-focused = #fbf1c7
 i3-unfocused = #928374
 i3-separator = #504945
-
-; colors for icon backgrounds
-i3 = #cc214d
-xwindow = #d3869b
-mpd-title = #fabd2f
+xwindow = #fabd2f
+mpd-title = #cc214d
 mpd-progress = ${settings/colors.mpd-title}
 volume = #b8bb26
 volume-muted = ${settings/colors.volume}
-date = #8ec07c
-time = #458588
+date = #d3869b
+time = #8ec07c
 menu = #555555
 menu-close = #928374
 
