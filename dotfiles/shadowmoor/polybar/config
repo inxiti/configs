@@ -8,14 +8,6 @@
 ;   better/different bitmap font?
 ;   move some more settings regarding appearance to the theme if possible
 ;
-; TOOL:
-;   use c; why not? gives me a reason.
-;   read: https://github.com/jaagr/polybar/wiki/Module:-script
-;   get workspaces
-;   get workspace total/max
-;       start with option in script, max = 10
-;   check what is missing, create that number
-;   if workspaces are maxed out, disable button/grey it out
 
 [settings]
 include-file = /home/inxiti/.config/polybar/themes/gruvbox
