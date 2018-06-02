@@ -27,7 +27,8 @@ volume-progress = ${settings/colors.volume}
 
 [bar/default]
 ; labels
-font-0 = "bitocra13full:style=Regular:size=13;1"
+; font-0 = "bitocra13full:style=Regular:size=13;1"
+font-0 = "IBM Plex Mono:style=Bold:size=9;2"
 
 ; icons
 font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=10;2"
