@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 Plug 'morhetz/gruvbox'
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
@@ -8,7 +8,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Swift syntax and indent files
-Plug 'https://github.com/keith/swift.vim.git'
+" Plug 'https://github.com/keith/swift.vim.git'
 
 " lightline, airline alternative
 Plug 'itchyny/lightline.vim'
@@ -45,19 +45,14 @@ Plug 'https://github.com/venantius/vim-cljfmt.git'
 " syntastic, syntax checking hacks for vim
 Plug 'https://github.com/vim-syntastic/syntastic.git'
 
-call plug#end()
+" monokai pro
+Plug 'phanviet/vim-monokai-pro'
+" Plug 'Erichain/vim-monokai-pro'
 
-" Airline
-" let g:airline#extensions#tabline#left_sep = ' '
-"let g:airline#extensions#tabline#left_alt_sep = '|'
-" let g:airline#extensions#tabline#buffer_min_count = 2
-" let g:airline_theme = 'deus'
-" let g:airline_theme = "jellybeans"
-" let g:airline_theme = "base16_spacemacs"
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline_skip_empty_sections = 1
-" let g:airline_detect_whitespace = 0
-" let g:airline_section_warning=''
+" vim clojure static
+Plug 'guns/vim-clojure-static'
+
+call plug#end()
 
 " Rainbow
 let g:rainbow_active = 1
@@ -103,11 +98,11 @@ let g:fzf_colors =
 
 " lightline
 let g:lightline = {}
-let g:lightline.colorscheme = 'jellybeans'
+let g:lightline.colorscheme = 'seoul256'
 
 " Paredit
-" let g:paredit_mode = 0
-" au BufNewFile,BufRead * call PareditInitBuffer()
+let g:paredit_mode = 0
+au BufNewFile,BufRead * call PareditInitBuffer()
 
 " Misc
 set nocompatible
@@ -132,8 +127,10 @@ set background=dark
 colorscheme jellybeans
 " colorscheme seti
 " colorscheme gruvbox
+" colorscheme monokai_pro
 set cursorline
 set noshowmode
+set termguicolors
 " set linespace=1
 highlight Comment cterm=italic
 highlight Comment gui=italic
