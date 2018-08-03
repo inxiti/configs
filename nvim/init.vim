@@ -98,7 +98,8 @@ let g:fzf_colors =
 
 " lightline
 let g:lightline = {}
-let g:lightline.colorscheme = 'seoul256'
+" let g:lightline.colorscheme = 'seoul256'
+let g:lightline.colorscheme = 'jellybeans'
 
 " Paredit
 let g:paredit_mode = 0
@@ -123,7 +124,7 @@ if !has('gui_running')
 endif
 
 syntax on
-set background=dark
+" set background=dark
 colorscheme jellybeans
 " colorscheme seti
 " colorscheme gruvbox
@@ -131,9 +132,9 @@ colorscheme jellybeans
 set cursorline
 set noshowmode
 set termguicolors
-" set linespace=1
-highlight Comment cterm=italic
-highlight Comment gui=italic
+set linespace=1
+highlight Comment gui=italic cterm=italic
+highlight htmlArg gui=italic cterm=italic
 
 " Mappings
 nmap <Leader>b :Buffers<CR>
@@ -161,3 +162,7 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
+
+" let &t_ZH="\e[3m"
+" let &t_ZR="\e[23m"
+
