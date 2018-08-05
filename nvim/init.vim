@@ -132,7 +132,9 @@ colorscheme jellybeans
 set cursorline
 set noshowmode
 set termguicolors
-set linespace=1
+" set linespace=2
+" enable mouse scrolling within tmux and vim
+set mouse=a 
 highlight Comment gui=italic cterm=italic
 highlight htmlArg gui=italic cterm=italic
 
