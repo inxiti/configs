@@ -7,6 +7,14 @@ if [ "${BASH-no}" != "no" ]; then
 	[ -r /etc/bashrc ] && . /etc/bashrc
 fi
 
+# source bash
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# bash completion
+if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+    . /usr/local/share/bash-completion/bash_completion
+fi
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -23,15 +31,21 @@ export LS_COLORS="di=1;31:ln=31:so=32:pi=33:ex=37:bd=34;46:cd=34;43:su=30;41:sg=
 # parenthesis around directories
 export PS1="\[$(tput setaf 0)\]\u\[$(tput bold)\]\[$(tput setaf 0)\]\h \[$(tput sgr0)\]\[$(tput setaf 0)\](\[$(tput bold)\]\[$(tput setaf 7)\]\w\[$(tput sgr0)\]\[$(tput setaf 0)\]) \\$ \[$(tput sgr0)\]"
 
-# use rg with fzf
-export FZF_DEFAULT_COMMAND='rg --files --ignore-case --no-messages --follow --no-ignore --hidden --color auto --glob "!.git/*"'
+# use rg with fzf, not using --hidden for hidden files
+export FZF_DEFAULT_COMMAND='rg --files --ignore-case --no-messages --follow --no-ignore --color auto --glob "!.git/*"'
 
 # programs
 export EDITOR=nvim
-export VISUAL=vimr
+# hopefully this works, was vimr
+export VISUAL=subl
 
 # aliases
 alias ls='ls -FGh'
-alias pip='pip3'
-alias python='python3'
+#alias pip='pip3'
+#alias python='python3'
 alias buu='brew update && brew upgrade'
+alias clearGoToFieldHistory='defaults delete com.apple.finder GoToField; defaults delete com.apple.finder GoToFieldHistory; killall Finder'
+alias tks='tmux kill-server'
+
+# cargo is for rust
+export PATH="$HOME/.cargo/bin:$PATH"
