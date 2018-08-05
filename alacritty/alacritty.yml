@@ -189,7 +189,7 @@ colors:
 #
 visual_bell:
   animation: EaseOut
-  duration: 250
+  duration: 0
 
 # Background opacity
 background_opacity: 0.95
