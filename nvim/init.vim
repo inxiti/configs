@@ -52,6 +52,12 @@ Plug 'phanviet/vim-monokai-pro'
 " vim clojure static
 Plug 'guns/vim-clojure-static'
 
+" vim git gutter
+Plug 'airblade/vim-gitgutter'
+
+" vim-fugitive
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 
 " Rainbow
@@ -97,21 +103,35 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " lightline
-let g:lightline = {}
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
+      \ }
 " let g:lightline.colorscheme = 'seoul256'
-let g:lightline.colorscheme = 'jellybeans'
+" let g:lightline.colorscheme = 'jellybeans'
 
 " Paredit
-let g:paredit_mode = 0
+let g:paredit_mode = 1
 au BufNewFile,BufRead * call PareditInitBuffer()
 
 " Misc
+set number
+" relative number
+set relativenumber
+"hi CursorLineNR cterm=bold
+" augroup CLNRSet
+"    autocmd! ColorScheme * hi CursorLineNR cterm=bold gui=bold
+"augroup END
 set nocompatible
 let mapleader=" "
-set relativenumber
+" set relativenumber
 set hidden	" allows changing buffers without saving
-set textwidth=100
-" set colorcolumn=100
 let g:loaded_matchparen=1
 filetype plugin indent on
 
@@ -124,7 +144,7 @@ if !has('gui_running')
 endif
 
 syntax on
-" set background=dark
+set background=dark
 colorscheme jellybeans
 " colorscheme seti
 " colorscheme gruvbox
@@ -134,18 +154,30 @@ set noshowmode
 set termguicolors
 " set linespace=2
 " enable mouse scrolling within tmux and vim
-set mouse=a 
+" update time set to 100ms, rather than default of 4s
+set updatetime=100
+set textwidth=80
+" set colorcolumn=80
+" colors match to jellybeans theme only
+" highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" match OverLength /\%81v.\+/
+
+" mouse related
+set mouse=a
+
+" syntax specific
 highlight Comment gui=italic cterm=italic
 highlight htmlArg gui=italic cterm=italic
+
 
 " Mappings
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>c :Commands<CR>
 nmap <Leader>s :Colors<CR>
-nmap <Leader>f :FZF<CR>	
-nmap <Leader>h :History<CR>
+nmap <Leader>f :FZF<CR>
+nmap <Leader>p :History<CR>
 nmap <Leader>w :Windows<CR>
-nmap <Tab> i<C-t><Esc> 
+nmap <Tab> i<C-t><Esc>
 nmap <S-Tab> i<C-d><Esc>
 vmap <Tab> :><CR>gv
 vmap <S-Tab> :<<CR>gv
