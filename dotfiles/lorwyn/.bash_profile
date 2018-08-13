@@ -18,8 +18,9 @@ fi
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# path
-export PATH=/usr/local/bin:/usr/local/sbin:/bin:/usr/bin
+# paths:
+#	cargo: rust
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/bin:/usr/local/sbin:/bin:/usr/bin:$PATH"
 
 # colors
 export LS_COLORS="di=1;31:ln=31:so=32:pi=33:ex=37:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
@@ -46,6 +47,3 @@ alias ls='ls -FGh'
 alias buu='brew update && brew upgrade'
 alias clearGoToFieldHistory='defaults delete com.apple.finder GoToField; defaults delete com.apple.finder GoToFieldHistory; killall Finder'
 alias tks='tmux kill-server'
-
-# cargo is for rust
-export PATH="$HOME/.cargo/bin:$PATH"
