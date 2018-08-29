@@ -24,6 +24,7 @@ export PATH="$HOME/.local/bin:$HOME/.cargo/bin:/usr/local/bin:/usr/local/sbin:/b
 
 # colors
 export LS_COLORS="di=1;31:ln=31:so=32:pi=33:ex=37:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+export BAT_THEME="1337"
 
 # prompt
 # square brackets around directories
