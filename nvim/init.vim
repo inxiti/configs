@@ -1,4 +1,8 @@
+let g:python3_host_prog = '/usr/local/bin/python3'
+
+" begin vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
+
 Plug 'morhetz/gruvbox'
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
@@ -12,12 +16,6 @@ Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " lightline, airline alternative
 Plug 'itchyny/lightline.vim'
-
-" Airline
-" Plug 'https://github.com/vim-airline/vim-airline.git'
-
-" Airline themes
-" Plug 'https://github.com/vim-airline/vim-airline-themes.git'
 
 " fzf.vim
 Plug '/usr/local/opt/fzf' " fzf location
@@ -35,6 +33,9 @@ Plug 'https://github.com/tpope/vim-classpath.git'
 
 " static support for leiningen and boot
 Plug 'https://github.com/tpope/vim-salve.git'
+
+" asynchronous build and test dispatcher, used for fireplace/salve
+Plug 'https://github.com/tpope/vim-dispatch'
 
 " paredit, parenthesis support for clojure/lisps/etc
 Plug 'https://github.com/vim-scripts/paredit.vim.git'
@@ -58,6 +59,7 @@ Plug 'airblade/vim-gitgutter'
 " vim-fugitive
 Plug 'tpope/vim-fugitive'
 
+" end vim-plug
 call plug#end()
 
 " Rainbow
@@ -104,7 +106,7 @@ let g:fzf_colors =
 
 " lightline
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'wombat',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -130,12 +132,12 @@ set relativenumber
 "augroup END
 set nocompatible
 let mapleader=" "
-" set relativenumber
 set hidden	" allows changing buffers without saving
 let g:loaded_matchparen=1
 filetype plugin indent on
 
 " omnicomplete
+set omnifunc=syntaxcomplete#Complete
 autocmd CompleteDone * pclose
 
 " Theme
@@ -145,10 +147,10 @@ endif
 
 syntax on
 set background=dark
-colorscheme jellybeans
-" colorscheme seti
-" colorscheme gruvbox
-" colorscheme monokai_pro
+" colorscheme jellybeans
+"colorscheme seti
+"colorscheme gruvbox
+colorscheme monokai_pro
 set cursorline
 set noshowmode
 set termguicolors
@@ -169,7 +171,6 @@ set mouse=a
 highlight Comment gui=italic cterm=italic
 highlight htmlArg gui=italic cterm=italic
 
-
 " Mappings
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>c :Commands<CR>
@@ -183,8 +184,12 @@ vmap <Tab> :><CR>gv
 vmap <S-Tab> :<<CR>gv
 nmap <F3> :bp<CR>
 nmap <F4> :bn<CR>
+
 " autocomplete (control space)
-" inoremap <C-@> <C-x><C-o>
+inoremap <C-Space> <C-x><C-o>
+inoremap <C-@> <C-x><C-o>
+
+" disables highlighting of recent search matches
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " Commands
@@ -197,6 +202,6 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
-" let &t_ZH="\e[3m"
-" let &t_ZR="\e[23m"
-
+" enable italics
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
