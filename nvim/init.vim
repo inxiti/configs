@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 " configuration for neovim
 
 " point to proper python3 binary
 let g:python3_host_prog = '/usr/local/bin/python3'
+=======
+" neovim configuration
+"
+>>>>>>> 4c8dbd147fbfc00f8d983967fc9db299ae8c8279
 
 " begin vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
@@ -108,6 +113,7 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " lightline
+" colorschemes: wombat, seoul256, jellybeans
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ 'active': {
@@ -118,8 +124,6 @@ let g:lightline = {
       \   'gitbranch': 'fugitive#head'
       \ },
       \ }
-" let g:lightline.colorscheme = 'seoul256'
-" let g:lightline.colorscheme = 'jellybeans'
 
 " Paredit
 let g:paredit_mode = 1
@@ -205,6 +209,9 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
+" point to proper python3 binary
+let g:python3_host_prog = '/usr/local/bin/python3'
+
 " enable italics
-let &t_ZH="\e[3m"
-let &t_ZR="\e[23m"
+" let &t_ZH="\e[3m"
+" let &t_ZR="\e[23m"
