@@ -1,6 +1,6 @@
 # Configuration Files (Lorwyn)
 
-These are primarily for my systems Lorwyn, Shadowmoor, and Morningtide.
+These are primarily for my personal systems Lorwyn, Shadowmoor, and Morningtide.
 
 Miscellaneous configs that need to be backed up somewhere, so why not here?
 
