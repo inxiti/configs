@@ -29,8 +29,8 @@
 		"paredit"
 	],
 	"line_numbers": true,
-	"line_padding_bottom": 1,
-	"line_padding_top": 1,
+	"line_padding_bottom": 2,
+	"line_padding_top": 2,
 	"match_brackets": false,
 	"material_theme_accent_pink": true,
 	"material_theme_accent_scrollbars": true,
