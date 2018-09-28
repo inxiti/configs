@@ -8,7 +8,7 @@
 	"draw_white_space": "none",
 	"enable_tab_scrolling": false,
 	"ensure_newline_at_eof_on_save": false,
-	"font_face": "Source Code Pro",
+	"font_face": "IBM Plex Mono",
 	"font_size": 12,
 	"gruvbox_accent_neutral": true,
 	"gruvbox_accent_purple": true,
