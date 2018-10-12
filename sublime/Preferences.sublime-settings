@@ -48,7 +48,7 @@
 	[
 		100
 	],
-	"scroll_past_end": true,
+	"scroll_past_end": false,
 	"theme": "Material-Theme-Darker.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"vintage_start_in_command_mode": true
