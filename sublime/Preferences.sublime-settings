@@ -9,7 +9,7 @@
 	"enable_tab_scrolling": false,
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "IBM Plex Mono",
-	"font_size": 16,
+	"font_size": 14,
 	"gruvbox_accent_neutral": true,
 	"gruvbox_accent_purple": true,
 	"gruvbox_autocomplete_border": false,
