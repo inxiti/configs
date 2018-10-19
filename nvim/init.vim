@@ -1,12 +1,8 @@
-<<<<<<< HEAD
 " configuration for neovim
+"
 
 " point to proper python3 binary
 let g:python3_host_prog = '/usr/local/bin/python3'
-=======
-" neovim configuration
-"
->>>>>>> 4c8dbd147fbfc00f8d983967fc9db299ae8c8279
 
 " begin vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
