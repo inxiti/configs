@@ -1,5 +1,4 @@
 " configuration for neovim
-"
 
 " point to proper python3 binary
 let g:python3_host_prog = '/usr/local/bin/python3'
