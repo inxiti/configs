@@ -211,3 +211,5 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 " enable italics
 " let &t_ZH="\e[3m"
 " let &t_ZR="\e[23m"
+
+" eof
