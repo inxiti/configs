@@ -1,4 +1,4 @@
-" configuration for neovim
+" lorwyn/morningtide configuration for neovim
 "
 
 " point to proper python3 binary
