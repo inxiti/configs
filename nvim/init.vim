@@ -161,7 +161,7 @@ set termguicolors
 " enable mouse scrolling within tmux and vim
 " update time set to 100ms, rather than default of 4s
 set updatetime=100
-set textwidth=80
+" set textwidth=80
 " set colorcolumn=80
 " colors match to jellybeans theme only
 " highlight OverLength ctermbg=red ctermfg=white guibg=#592929
