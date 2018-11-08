@@ -16,7 +16,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
 " Swift syntax and indent files
-" Plug 'https://github.com/keith/swift.vim.git'
+"Plug 'https://github.com/keith/swift.vim.git'
 
 " lightline, airline alternative
 Plug 'itchyny/lightline.vim'
