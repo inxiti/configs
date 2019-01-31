@@ -8,6 +8,7 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', {'as': 'dracula'}
 
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 Plug 'junegunn/vim-easy-align'
@@ -123,7 +124,6 @@ let g:lightline = {
 
 " Paredit
 let g:paredit_mode = 1
-au BufNewFile,BufRead * call PareditInitBuffer()
 
 " Misc
 set number
@@ -150,10 +150,6 @@ endif
 
 syntax on
 set background=dark
-" colorscheme jellybeans
-"colorscheme seti
-"colorscheme gruvbox
-colorscheme monokai_pro
 set cursorline
 set noshowmode
 set termguicolors
@@ -211,5 +207,17 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 " enable italics
 " let &t_ZH="\e[3m"
 " let &t_ZR="\e[23m"
+
+set rtp+=/usr/local/opt/fzf
+
+" transparency for any scheme
+au BufNewFile,BufRead * call PareditInitBuffer()
+au ColorScheme * hi Normal ctermbg=none guibg=none
+
+" colorscheme jellybeans
+" colorscheme seti
+" colorscheme gruvbox
+colorscheme monokai_pro
+"colorscheme dracula
 
 " eof
