@@ -34,7 +34,7 @@ export BAT_THEME="1337"
 export PS1="\[$(tput setaf 0)\]\u\[$(tput bold)\]\[$(tput setaf 0)\]\h \[$(tput sgr0)\]\[$(tput setaf 0)\](\[$(tput bold)\]\[$(tput setaf 7)\]\w\[$(tput sgr0)\]\[$(tput setaf 0)\]) \\$ \[$(tput sgr0)\]"
 
 # use rg with fzf, not using --hidden for hidden files
-export FZF_DEFAULT_COMMAND='rg --files --ignore-case --no-messages --follow --no-ignore --color auto --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --ignore-case --no-messages --follow --no-ignore --color auto --glob "!.git/*"'
 
 # programs
 export EDITOR=nvim
@@ -45,6 +45,7 @@ export VISUAL=subl
 alias ls='ls -FGh'
 #alias pip='pip3'
 #alias python='python3'
-alias buu='brew update && brew upgrade'
+alias buu='brew update && brew upgrade && brew cask upgrade'
+alias snm='TERM=screen-256color ssh nvnehi@morningtide'
 alias clearGoToFieldHistory='defaults delete com.apple.finder GoToField; defaults delete com.apple.finder GoToFieldHistory; killall Finder'
 alias tks='tmux kill-server'
